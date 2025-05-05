@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistério na Floresta Encantada</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lora:wght@500&family=Hind+Madurai:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mistério na Floresta Encantada <span class="emoji">🌳✨</span></h1>
+        <p class="subtitle">Desvende o eco mágico que ressoa pela floresta</p>
+
+        <div class="input-group">
+            <label for="palavras">Insira as palavras separadas por vírgula:</label>
+            <input type="text" id="palavras" placeholder="Ex: arbustos,fada,gigantes,unicórnios,dragão,mistério">
+        </div>
+
+        <div class="button-group">
+            <button class="custom-btn btn-3" id="desvendar"><span>DESVENDAR</span></button>
+            <button class="custom-btn btn-3" id="retornar"><span>RETORNAR</span></button>
+        </div>
+
+        <div class="result-container">
+            <h2>Palavras Encantadas:</h2>
+            <div id="resultado" class="result-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

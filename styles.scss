@@ -1,0 +1,245 @@
+// Variáveis de cores e fontes
+$primary-color: #2c5e1a;
+$secondary-color: #4a8c2c;
+$background-color: rgba(0, 0, 0, 0.7);
+$text-color: #f0f0f0;
+$input-bg: rgba(255, 255, 255, 0.1);
+$input-border: 1px solid rgba(255, 255, 255, 0.3);
+
+// Mixin para responsividade
+@mixin respond-to($breakpoint) {
+    @if $breakpoint==phone {
+        @media (max-width: 600px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==tablet {
+        @media (max-width: 900px) {
+            @content;
+        }
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: url('./images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: $text-color;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5%;
+
+    @include respond-to(tablet) {
+        padding: 20px;
+        justify-content: center;
+    }
+}
+
+.container {
+    background-color: $background-color;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+    @include respond-to(phone) {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+
+    .emoji {
+        font-size: 1.8rem;
+    }
+
+    @include respond-to(phone) {
+        font-size: 1.8rem;
+    }
+}
+
+.subtitle {
+    font-family: 'Hind Madurai', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-family: 'Hind Madurai', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 5px;
+        border: $input-border;
+        background-color: $input-bg;
+        color: $text-color;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $secondary-color;
+            box-shadow: 0 0 0 2px rgba($secondary-color, 0.3);
+        }
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    @include respond-to(phone) {
+        flex-direction: column;
+    }
+}
+
+.result-container {
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+}
+
+.result-content {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 5px;
+    min-height: 50px;
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 1.1rem;
+    border-left: 3px solid $secondary-color;
+}
+
+// Estilos dos botões animados
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.btn-3 {
+    background: $primary-color;
+    background: linear-gradient(0deg, $primary-color 0%, $secondary-color 100%);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+
+    span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background: $secondary-color;
+        transition: all 0.3s ease;
+    }
+
+    &:before {
+        height: 0%;
+        width: 2px;
+    }
+
+    &:after {
+        width: 0%;
+        height: 2px;
+    }
+
+    &:hover {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    &:hover:before {
+        height: 100%;
+    }
+
+    &:hover:after {
+        width: 100%;
+    }
+
+    span:hover {
+        color: $secondary-color;
+    }
+
+    span:before,
+    span:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        background: $secondary-color;
+        transition: all 0.3s ease;
+    }
+
+    span:before {
+        width: 2px;
+        height: 0%;
+    }
+
+    span:after {
+        width: 0%;
+        height: 2px;
+    }
+
+    span:hover:before {
+        height: 100%;
+    }
+
+    span:hover:after {
+        width: 100%;
+    }
+}
